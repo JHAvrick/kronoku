@@ -1,0 +1,117 @@
+@import '../variables';
+@import '../breakpoints';
+
+/* -------------BLOCK------------- */
+.panel {
+  display: block;
+	background-color: white;
+	box-shadow: #d8e3e9 0 0 10px;
+	border-radius: 5px;
+}
+
+/* Positions */
+.panel--centered {
+	margin: auto;
+}
+
+/* Sizes */
+.panel--full {
+	width: 90%;
+	height: 85%;
+}
+
+/* Sizes */
+.panel--medium {
+	width: 50%;
+	height: 85%;
+}
+
+/* Sizes */
+.panel--small {
+	width: 25%;
+	height: 85%;
+}
+
+
+/* -------------ELEMENT------------- */
+.panel__title {
+	display: flex;
+  justify-content: flex-start;
+  align-items: center;
+	font: 40px Aqua;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid gray;
+	padding-top: 20px;
+}
+
+.panel__icon {
+	width: 30px;
+	height: 30px;
+	margin-left: auto;
+}
+
+.panel__subtitle {
+	font-size: 22px;
+	font-weight: normal;
+	margin-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.panel__text {
+	font: 20px;
+	color: $kronoku-text-muted;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+@include breakpoint(small){
+
+	/* -------------BLOCK------------- */
+
+	/* Sizes */
+	.panel--full {
+		width: 95%;
+		height: 80%;
+	}
+
+	/* Sizes */
+	.panel--medium {
+		width: 95%;
+		height: 80%;
+	}
+
+	/* Sizes */
+	.panel--small {
+		width: 95%;
+		height: 80%;
+	}
+
+	/* -------------ELEMENT------------- */
+
+	.panel__title {
+		margin-left: 25px;
+		margin-right: 25px;
+	}
+
+	.panel__icon {
+		width: 30px;
+		height: 30px;
+		margin-left: auto;
+	}
+
+	.panel__subtitle {
+		margin-left: 25px;
+		margin-right: 25px;
+	}
+
+	.panel__text {
+		font: 26px;
+		margin-left: 25px;
+		margin-right: 25px;
+		margin-top: 5px;
+	}
+
+}

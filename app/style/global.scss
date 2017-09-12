@@ -1,0 +1,34 @@
+@font-face {
+ font-family: "Aqua";
+ src: url("aqua.ttf") format("truetype");
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F4F8F9;
+	overflow: hidden;
+	line-height: normal;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+textarea {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+button {
+	color: $kronoku-text-muted;
+  background-color: transparent;
+  border: 2px solid $kronoku-green;
+  border-radius: 5px;
+  height: 50px;
+  width: 300px;
+  font-size: 20px;
+  transition: .5s;
+}
+
+button:hover {
+  background-color: $kronoku-green;
+  transition: .5s;
+}

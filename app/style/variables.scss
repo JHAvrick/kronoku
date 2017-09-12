@@ -1,0 +1,26 @@
+$kronoku-bg-color: #F4F8F9;
+$kronoku-fg-color: #FFFFFF;
+$kronoku-text-muted: #636C72;
+
+$kronoku-blue: #BAE1FF;
+$kronoku-green: #BAFFC9;
+$kronoku-purple: #D9D1FF;
+$kronoku-red: #FFB3BA;
+$kronoku-yellow: #FFFFBA;
+
+
+/* Side Nav */
+$sidenav-bg-color: #deeaed;
+$sidenav-header-color: $kronoku-fg-color;
+$sidenav-header-height: 55px !default;
+$sidenav-header-font: 22px Arial;
+$sidenav-header-font-color: #A4A2A3 !default;
+
+@mixin unselectable(){
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+   user-select: none;
+}

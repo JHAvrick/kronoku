@@ -1,0 +1,35 @@
+{
+  "name": "kronoku-front",
+  "version": "1.0.0",
+  "description": "Front-end for Kronoku, wep app for setting SMS reminders",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p",
+    "dev": "webpack -d --watch",
+    "style": "node-sass --watch ./app/style/all.scss ./build/bundle.css",
+    "server": "node server.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "express": "^4.15.4",
+    "ip": "^1.1.5",
+    "node-sass": "^4.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.4.1",
+    "webpack-bundle-analyzer": "^2.9.0"
+  },
+  "author": "Joshua Avrick",
+  "license": "MIT",
+  "dependencies": {
+    "react-icons": "^2.2.5",
+    "react-onclickout": "^2.0.7",
+    "react-phone-input": "^1.2.1",
+    "react-phone-number-input": "^0.12.10",
+    "react-sidenav": "^2.1.2"
+  }
+}

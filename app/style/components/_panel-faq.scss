@@ -1,0 +1,35 @@
+.question-container {
+	background-color: transparent;
+	border-radius: 7px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 45px;
+	margin-right: 45px;
+	max-width: 600px;
+	transition: .2s;
+}
+
+.container--blue:hover {
+	background-color: #BAE1FF;
+	transition: .5s;
+}
+
+.container--green:hover {
+	background-color: #BAFFC9;
+	transition: .5s;
+}
+
+.container--purple:hover {
+	background-color: #D9D1FF;
+	transition: .5s;
+}
+
+.container--red:hover {
+	background-color: #FFB3BA;
+	transition: .5s;
+}
+
+.container--yellow:hover {
+	background-color: #FFFFBA;
+	transition: .5s;
+}

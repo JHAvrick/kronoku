@@ -1,0 +1,61 @@
+.recipients--container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 275px;
+  height: 325px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow:  #d8e3e9 0 0 10px;
+
+  .phone-input--container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone-input {
+    color: transparent;
+    text-shadow: 0 0 0 grey;
+    height: 30px;
+    font-size: 14px;
+    width: 220px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+
+  .message-input {
+    height: 150px;
+    width: 220px;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 3px;
+    resize: none;
+    margin-top: 10px;
+  }
+
+  .button--submit-reminder {
+    color: white;
+    background-color: #282826;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: 35px;
+    width: 220px;
+    font-size: 16px;
+    transition: .5s;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .button--submit-reminder:hover {
+    background-color: gray;
+    transition: .5s;
+  }
+
+}
