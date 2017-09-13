@@ -31,6 +31,7 @@ module.exports = {
 					base: path.resolve(__dirname, 'app/components/base'),
 					comp: path.resolve(__dirname, 'app/components/comp'),
 					page: path.resolve(__dirname, 'app/components/page'),
+					controller: path.resolve(__dirname, 'app/controller')
 				}
 			}
 	};

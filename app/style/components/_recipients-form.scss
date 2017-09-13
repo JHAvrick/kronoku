@@ -20,14 +20,14 @@
   }
 
   .phone-input {
-    color: transparent;
-    text-shadow: 0 0 0 grey;
-    height: 30px;
-    font-size: 14px;
     width: 220px;
-    text-align: center;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 14px;
+    color: transparent;
     border: 1px solid black;
     border-radius: 3px;
+    text-shadow: 0 0 0 grey;
   }
 
   .message-input {
@@ -38,6 +38,7 @@
     border-radius: 3px;
     resize: none;
     margin-top: 10px;
+    padding: 5px;
   }
 
   .button--submit-reminder {
@@ -56,6 +57,11 @@
   .button--submit-reminder:hover {
     background-color: gray;
     transition: .5s;
+  }
+
+  .button--submit-reminder:disabled {
+    cursor: not-allowed;
+    background-color: $kronoku-text-muted;
   }
 
 }

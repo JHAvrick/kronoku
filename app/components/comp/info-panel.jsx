@@ -36,7 +36,7 @@ class InfoPanel extends React.Component {
                   height: '55%'
                 }}>
 
-                  <button onClick={ this.goToSetReminder }> {"Set Reminder Now!"} </button>
+                  <button className="button--set-reminder" onClick={ this.goToSetReminder }> {"Set Reminder Now!"} </button>
 
                 </div>
 

@@ -41,6 +41,8 @@ class PhoneInput extends React.Component {
     var number = this.state.currentValue.replace(/\D/g, '');
     var cursorIndex = this.state.currentValue.lastIndexOf(number[number.length - 1]) + 1;
     this.inputRef.setSelectionRange(cursorIndex, cursorIndex);
+
+    this.state.onChange(this.inputRef.value.replace(/\D/g, ''));
   }
 
   setInputRef(ref){
@@ -48,10 +50,10 @@ class PhoneInput extends React.Component {
   }
 
   render() {
-    return (<input ref={this.setInputRef} 
-                   className="phone-input"
-                   value={this.state.currentValue} 
-                   onInput={this.handleInput}
+    return (<input className="phone-input"
+                   ref={ this.setInputRef } 
+                   value={ this.state.currentValue } 
+                   onInput={ this.handleInput }
                    onClick={ this.handleCursorMove }
                    onKeyDown={ this.handleCursorMove } />)
   }

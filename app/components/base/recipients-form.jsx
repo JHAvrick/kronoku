@@ -9,6 +9,7 @@ class RecipientsForm extends React.Component {
     this.state = {
       number: '',
       message: '',
+      disabled: props.disabled,
       onChange: props.onChange,
       onSubmit: props.onSubmit
     }
@@ -30,9 +31,9 @@ class RecipientsForm extends React.Component {
     });
   }
 
-  handleMessageChange(change){
+  handleMessageChange(e){
     this.setState({
-      message: change
+      message: e.target.value
     }, ()=>{
       this.state.onChange({
         number: this.state.number,
@@ -57,20 +58,23 @@ class RecipientsForm extends React.Component {
                 </div>
                 <textarea className="message-input" 
                           maxLength="150"
-                          placeholder="Your reminder here">
+                          placeholder="Your reminder here"
+                          onChange={ this.handleMessageChange }>
                 </textarea>
-                <button className="button--submit-reminder"> Set Reminder </button>
+                <button disabled={this.state.disabled} className="button--submit-reminder" onClick={this.handleSubmit}> Set Reminder </button>
             </div>)
   }
 
 }
 
 RecipientsForm.propTypes = {
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func
 }
 
 RecipientsForm.defaultProps = {
+  disabled: false,
   onChange: function(){},
   onSubmit: function(){}
 }

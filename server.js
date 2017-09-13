@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var port = 8080;
+var port = 8000;
 
 // __dirname will use the current path from where you run this file 
 app.use(express.static(path.join(__dirname, '/build')));

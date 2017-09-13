@@ -7,3 +7,20 @@
 	margin-right: 45px;
 	transition: .5s;
 }
+
+.button--set-reminder {
+	color: $kronoku-text-muted;
+  background-color: transparent;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  height: 50px;
+  width: 300px; 
+  font-size: 20px;
+  transition: .5s;
+}
+
+.button--set-reminder:hover {
+  background-color: black;
+  color: white;
+  transition: .5s;
+}

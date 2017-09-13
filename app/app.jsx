@@ -1,12 +1,17 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+//Controller
+import SessionManager from 'controller/session-manager.js';
+
 //Nav
 import Transitional from 'base/transitional.jsx';
 import KronokuNav from 'comp/kronoku-nav.jsx';
 import SetReminder from 'page/set-reminder.jsx';
 import HomeFaq from 'page/home-faq.jsx';
 import Home from 'page/home.jsx';
+
+window.UserSession = new SessionManager();
 
 //Pages
 //---------------------------------------------------------------------------

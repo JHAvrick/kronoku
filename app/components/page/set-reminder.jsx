@@ -5,7 +5,9 @@ import DateSelect from 'base/date-select.jsx';
 import DateSummary from 'base/date-summary.jsx';
 import TimeSelect from 'base/time-select.jsx';
 import RecipientsForm from 'base/recipients-form.jsx';
+import { ToastContainer, toast } from 'react-toastify';
 
+import ReminderRequest from 'controller/reminder-request.js';
 
 class SetReminder extends React.Component {
   constructor(props){
@@ -18,11 +20,16 @@ class SetReminder extends React.Component {
       day: now.getDate(),
       hour: now.getHours(),
       minute: now.getMinutes(),
-      pm: now.getHours() > 12 ? true : false
+      pm: now.getHours() > 12 ? true : false,
+      phone: '',
+      message: '',
+      reminderPending: false
     }
 
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
+    this.handleSMSChange = this.handleSMSChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -50,8 +57,49 @@ class SetReminder extends React.Component {
     });
   }
 
+  handleSMSChange(change){
+    this.setState({
+      phone: change.number,
+      message: change.message
+    });
+  }
+
+  handleSubmit(){
+
+    this.setState({ reminderPending: true}, ()=> {
+
+      var request = new ReminderRequest(this.state, 
+        //On success
+        (result) => {
+
+          this.setState({ reminderPending: false });
+
+          if (result.success) toast.success("Reminder Created!");
+          else toast.error(result.reason || "Error: Reminder Failed.");
+            
+        }, 
+        //On Failure
+        (result) => {
+
+          this.setState({ reminderPending: false });
+
+          toast.error("Error contacting server.");
+
+        });
+
+    });
+  }
+
   render() {
     return (<div style={{ height: '100%' }}>
+
+              <ToastContainer position="top-right"
+                              type="default"
+                              autoClose={5000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              pauseOnHover />
 
                 <div style={{ display: 'flex', 
                               flexDirection: 'row', 
@@ -78,7 +126,7 @@ class SetReminder extends React.Component {
                   </div>
 
                   <div style={{ flexGrow: ".1" }}>
-                    <RecipientsForm />
+                    <RecipientsForm onChange={this.handleSMSChange} onSubmit={this.handleSubmit} disabled={this.state.reminderPending} />
                   </div>
 
                 </div>
