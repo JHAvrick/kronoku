@@ -7,7 +7,7 @@ class BlacklistRequest {
 			number: number
 		}
 		
-		var request = new Request('http://127.0.0.1:8080/stage_blacklist', 
+		var request = new Request('https://kronoku.herokuapp.com/stage_blacklist', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },

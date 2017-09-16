@@ -7,7 +7,7 @@ class DeleteRequest {
 			reminderId: reminderId
 		}
 		
-		var request = new Request('http://127.0.0.1:8080/delete_reminder', 
+		var request = new Request('https://kronoku.herokuapp.com/delete_reminder', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },

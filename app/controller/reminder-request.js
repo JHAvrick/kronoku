@@ -11,7 +11,7 @@ class ReminderRequest {
 			message: reminder.message
 		}
 		
-		var request = new Request('http://127.0.0.1:8080/register_reminder', 
+		var request = new Request('https://kronoku.herokuapp.com/register_reminder', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },

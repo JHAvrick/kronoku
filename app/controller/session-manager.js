@@ -19,7 +19,7 @@ class SessionManager {
 
 	registerAnonUser(){
 
-		var request = new Request('http://127.0.0.1:8080/register_anon', 
+		var request = new Request('https://kronoku.herokuapp.com/register_anon', 
 								{
 									method: 'POST', 
 									headers: {
