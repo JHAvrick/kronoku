@@ -3,7 +3,7 @@ class ExistingRequest {
 		var onComplete = onComplete ? onComplete : function(){}
 		var onFailure = onFailure ? onFailure : function(){}
 
-		var request = new Request('https://kronoku.herokuapp.com/existing_reminders', 
+		var request = new Request(UserSession.getRequestPath() + '/existing_reminders', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },

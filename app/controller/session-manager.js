@@ -9,6 +9,7 @@ class SessionManager {
 		
 		this.store = JSON.parse(localStorage.getItem('kronoku'));
 		this.storeRaw = localStorage.getItem('kronoku');
+		this.requestPath = 'https://desolate-reaches-37166.herokuapp.com';
 
 		this.logVisit();
 	}
@@ -17,9 +18,13 @@ class SessionManager {
 		return this.store.guid;
 	}
 
+	getRequestPath(){
+		return this.requestPath;
+	}
+
 	registerAnonUser(){
 
-		var request = new Request('https://kronoku.herokuapp.com/register_anon', 
+		var request = new Request('https://desolate-reaches-37166.herokuapp.com/register_anon', 
 								{
 									method: 'POST', 
 									headers: {

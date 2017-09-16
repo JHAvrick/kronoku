@@ -8,7 +8,7 @@ class BlacklistVerifyRequest {
 			pin: pin
 		}
 		
-		var request = new Request('https://kronoku.herokuapp.com/verify_blacklist', 
+		var request = new Request(UserSession.getRequestPath() + '/verify_blacklist', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },
