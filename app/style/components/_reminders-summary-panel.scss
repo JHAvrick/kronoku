@@ -1,0 +1,73 @@
+.reminders-summary--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow:  #d8e3e9 0 0 10px;
+
+  .reminders-summary--title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    font-size: 22px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+  }
+
+  .container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 90%;
+    height: 95%;
+
+    span {
+      flex-grow: .2;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      border-radius: 3px;
+      word-break: break-word;
+      transition: 0.5s;
+    }
+
+    .blue:hover {
+      background-color: $kronoku-blue;
+    }
+
+    .purple:hover {
+      background-color: $kronoku-purple;
+    }
+
+    .green:hover {
+      background-color: $kronoku-green;
+    }
+
+    .red:hover {
+      background-color: $kronoku-red;
+    }
+
+    .delete-reminder--container {
+        margin: auto;
+        color: darken($kronoku-red, 10%);
+    }
+
+    .delete-reminder--container:hover {
+        margin: auto;
+        color: $kronoku-red;
+    }
+
+  }
+
+}

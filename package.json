@@ -26,6 +26,7 @@
   "author": "Joshua Avrick",
   "license": "MIT",
   "dependencies": {
+    "react-code-input": "^1.1.5",
     "react-icons": "^2.2.5",
     "react-onclickout": "^2.0.7",
     "react-phone-input": "^1.2.1",

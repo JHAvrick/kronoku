@@ -7,8 +7,15 @@ import SessionManager from 'controller/session-manager.js';
 //Nav
 import Transitional from 'base/transitional.jsx';
 import KronokuNav from 'comp/kronoku-nav.jsx';
+
+//Desktop pages
 import SetReminder from 'page/set-reminder.jsx';
+import MyReminders from 'page/my-reminders.jsx';
 import HomeFaq from 'page/home-faq.jsx';
+import Contact from 'page/contact.jsx';
+import Blacklist from 'page/blacklist.jsx';
+
+//Mobile pages
 import Home from 'page/home.jsx';
 
 window.UserSession = new SessionManager();
@@ -18,7 +25,10 @@ window.UserSession = new SessionManager();
 const DesktopPages =  {
   home: <HomeFaq />,
   setreminder: <SetReminder />,
-  faq: <HomeFaq />
+  myreminders: <MyReminders />,
+  faq: <HomeFaq />,
+  blacklist: <Blacklist />,
+  contact: <Contact />
 }
 
 const MobilePages =  {
@@ -85,11 +95,11 @@ class App extends React.Component {
 
               <Transitional isActive={ this.state.reveal }
                             initial={{ position: 'relative', top: '-50px', opacity: '0', transition: '1s'}}
-                            enter={{ position: 'relative', top: '0px', opacity: '1', transition: '1s'}}
-                            exit={{ position: 'relative', top: '50px', opacity: '0', transition: '1s'}}
+                            enter={{ transform: 'translate3d(0,0,0)', position: 'relative', top: '0px', opacity: '1', transition: '1s'}}
+                            exit={{ transform: 'translate3d(0,0,0)', position: 'relative', top: '50px', opacity: '0', transition: '1s'}}
                             onTransitionComplete={this.handleTransitionComplete} >
 
-                { React.cloneElement(this.state.activePage, { title: "Ursh" }) }
+                { React.cloneElement(this.state.activePage, {/* props go here, if it comes up */}) }
 
               </Transitional>
 

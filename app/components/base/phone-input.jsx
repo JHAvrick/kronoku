@@ -6,8 +6,9 @@ class PhoneInput extends React.Component {
     super(props);
 
     this.state = {
+      disabled: props.disabled || false,
       template: "(~0~1~2) - ~3~4~5 - ~6~7~8~9",
-      currentValue: "(###) - ### - ####",
+      currentValue: "(    )  -     -    ",
       onChange: props.onChange
     }
 
@@ -17,8 +18,8 @@ class PhoneInput extends React.Component {
   } 
 
   handleInput(e){
-    //Replace all non-digit characters w/ nothing
-    var number = e.target.value.replace(/\D/g, '');
+    //Replace all non-digit characters w/ nothing AND force only 10 digits max
+    var number = e.target.value.replace(/\D/g, '').substring(0,10);
 
     var newValue = this.state.template; //Get the template from state
     for (var i = 0; i < number.length; i++){
@@ -49,13 +50,20 @@ class PhoneInput extends React.Component {
     this.inputRef = ref;
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      disabled: nextProps.disabled || false
+    });
+  }
+
   render() {
     return (<input className="phone-input"
                    ref={ this.setInputRef } 
                    value={ this.state.currentValue } 
                    onInput={ this.handleInput }
                    onClick={ this.handleCursorMove }
-                   onKeyDown={ this.handleCursorMove } />)
+                   onKeyDown={ this.handleCursorMove } 
+                   disabled={this.state.disabled} />)
   }
 
 }

@@ -54,14 +54,12 @@ class RecipientsForm extends React.Component {
                 <span className="phone-input--container">
                   <PhoneInput onChange={this.handleNumberChange} />
                 </span>
-                <div>
-                </div>
                 <textarea className="message-input" 
                           maxLength="150"
                           placeholder="Your reminder here"
                           onChange={ this.handleMessageChange }>
                 </textarea>
-                <button disabled={this.state.disabled} className="button--submit-reminder" onClick={this.handleSubmit}> Set Reminder </button>
+                <button disabled={this.state.disabled} className="button--dark" onClick={this.handleSubmit}> Set Reminder </button>
             </div>)
   }
 

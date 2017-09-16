@@ -18,7 +18,6 @@ class Panel extends React.Component {
 
   render() {
     return (<div className={this.state.className} style={this.style}>
-              <h1> { this.state.title } </h1>
               { this.props.children }
             </div>)
   }

@@ -90,7 +90,7 @@ class KronokuNav extends React.Component {
       sideNavOpen: false
     });
   }
-
+  
   goContact(){
     window.location.hash = '#contact';
     this.setState({
@@ -127,9 +127,11 @@ class KronokuNav extends React.Component {
                 <InformationCircled size={25} style={ KronokuNav.itemStyle } />
               </SideNavItem>
 
+            {/* 
               <SideNavItem title={"Contact"} isActive={ this.state.activeKey === 'contact' ? true : false } onClick={ this.goContact }>
                 <AndroidTextsms size={25} style={ KronokuNav.itemStyle } />
               </SideNavItem>
+            */}
 
             </SideNav>
 
