@@ -20,24 +20,39 @@ class BlacklistInfoPanel extends React.Component {
                   <InformationCircled size={30} style={{ marginLeft: 'auto' }}/>
                 </h1>
 
-                <div className="question-container container--blue">
-                  <h2 className="panel__subtitle"> {" Check Your Status "} </h2>
-                  <p className="panel__text"> { 'Enter your number and tap "Check Your Status" to see whether your number is already blacklisted or not.' } 
-                  </p>
-                </div>
+                <div className="panel__content" style={{ height: '70%' }}>
 
-                <div className="question-container container--purple">
-                  <h2 className="panel__subtitle"> {" Verify Your Number "} </h2>
-                  <p className="panel__text"> { "To verify that you are the owner of a number, you must enter  " 
-                                              + "a 6-digit code which will be sent to you via SMS." } 
-                  </p>
-                </div>
+                  <div className="panel__textbox hover--blue">
+                    <h2 className="panel__subtitle"> {"1. Enter Your Number"} </h2>
+                    <p className="panel__text"> 
+                    { 
+                      'Enter your number and click "Blacklist Me" to begin verification process. ' +
+                      "You're number is NOT blacklisted until the verification is complete." 
+                    } 
+                    </p>
+                  </div>
 
-                <div className="question-container container--green">
-                  <h2 className="panel__subtitle"> {" Blacklist or Unblacklist Your Number "} </h2>
-                  <p className="panel__text"> { "Once you've verified you're number you can blacklist or unblacklist your number. \n"  
-                                              + "A blacklisted number will never be sent an SMS from Kronoku." } 
-                  </p>
+                  <div className="panel__textbox hover--purple">
+                    <h2 className="panel__subtitle"> {"2. Verify Your Number"} </h2>
+                    <p className="panel__text"> 
+                    { 
+                      "To verify that you are the owner of a number, you must enter " +
+                      "a 6-digit code which will be sent to you via SMS." 
+                    } 
+                    </p>
+                  </div>
+
+                  <div className="panel__textbox hover--green">
+                    <h2 className="panel__subtitle"> {"3. Your done!"} </h2>
+                    <p className="panel__text"> 
+                    { 
+                      "A blacklisted number will never receive an SMS from Kronoku. " +
+                      "To remove your number from the blacklist you'll have to shoot an email " +
+                      "to support@kronoku.com."
+                    } 
+                    </p>
+                  </div>
+
                 </div>
 
             </Panel>)

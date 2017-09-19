@@ -1,86 +1,67 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {toast} from 'react-toastify';
 
-import ExistingRequest from 'controller/existing-request.js';
+import FetchRemindersRequest from 'controller/fetch-reminders-request.js';
 import DeleteRequest from 'controller/delete-request.js';
-import MyRemindersPanel from 'comp/my-reminders-panel.jsx';
+import RemindersListPanel from 'comp/reminders-list-panel.jsx';
 import RemindersSummaryPanel from 'comp/reminders-summary-panel.jsx';
-import NoRemindersPanel from 'comp/no-reminders-panel.jsx';
-import NoRemindersInfoPanel from 'comp/no-reminders-info-panel.jsx';
-import { ToastContainer, toast } from 'react-toastify';
 
 class MyReminders extends React.Component {
   constructor(props){
   	super(props);
 
-    this.refreshReminders = this.refreshReminders.bind(this);
-    this.handleSelectionChange = this.handleSelectionChange.bind(this);
-    this.handleReminderDeleted = this.handleReminderDeleted.bind(this);
-
     this.state = {
+      shouldDelete: false,
       noReminders: false,
-      fetchComplete: false,
-      reminders: [],
-      activeReminder: {},
+      reminders: null,
+      activeReminder: null
     }
 
-    //Panels are only rendered once the initial fetch has completed
-    this.refreshReminders(() => {
-      this.setState({
-        fetchComplete: true
-      });
-    });
-
+    this.fetchReminders = this.fetchReminders.bind(this);
+    this.handleReminderSelected = this.handleReminderSelected.bind(this);
+    this.handleReminderDeleted = this.handleReminderDeleted.bind(this);
   }
 
-  handleSelectionChange(reminder){
+  componentDidMount() {
+    setTimeout(this.fetchReminders, 1000);
+  }
+
+  fetchReminders(){
+    new FetchRemindersRequest(
+      (result) => {
+        if (result.length > 0){
+          this.setState({
+            reminders: result,
+            activeReminder: result[0],
+            activeReminderId: result[0].id
+          });
+        } else {
+          this.setState({
+            reminders: result, //empty array
+            activeReminder: null,
+            activeReminderId: null
+          });  
+        }
+      }, () => { 
+        toast.error("Server Error: Could not fetch reminders. Try again later.");
+    });
+  }
+
+  handleReminderSelected(id){
     this.setState({
-      activeReminder: reminder
+      activeReminder: this.state.reminders.find(reminder => reminder.id === id),
+      activeReminderId: id
     });
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    var shouldUpdate = false;
-    switch(true){
-      case (nextState.reminders !== this.state.reminders):
-        shouldUpdate = true;
-        break;
-      case (nextState.fetchComplete !== this.state.fetchComplete):
-        shouldUpdate = true;
-        break;
-      case (nextState.activeReminder !== this.state.activeReminder):
-        shouldUpdate = true;
-        break;
-    }
-
-    return shouldUpdate;
-  }
-
-  refreshReminders(onComplete){
-    onComplete = onComplete ? onComplete : function(){}
-
-    //-----------------------FETCH REMINDERS------------------------------------
-    var reminders = new ExistingRequest((result) => {
-      
-      this.setState({
-        noReminders: result.length === 0 ? true : false,
-        reminders: result,
-        activeReminder: result[0]
-      }, () => {
-        onComplete();
-      });
-
-    });
-    //-------------------------------------------------------------------------    
   }
 
   handleReminderDeleted(){
-    new DeleteRequest(this.state.activeReminder.reminder_id, 
+    new DeleteRequest(this.state.activeReminder.groupId, 
 
       //On success 
       (response) => {
 
-        this.refreshReminders();
+        this.fetchReminders();
         toast.success("Reminder Deleted");
 
       },
@@ -96,56 +77,23 @@ class MyReminders extends React.Component {
 
   render() {
 
-    const panels = (<div style={{ height: '100%' }}>
+    return (<div style={{ height: '100%' }}>
 
-                      <ToastContainer position="top-right"
-                                      type="default"
-                                      autoClose={5000}
-                                      hideProgressBar={false}
-                                      newestOnTop={false}
-                                      closeOnClick
-                                      pauseOnHover />
+              <div style={ MyReminders.containerStyle }>
 
-                        <div style={ MyReminders.containerStyle }>
+                <div style={{ flexGrow: ".1" }}>
+                  <RemindersListPanel activeReminderId={this.state.activeReminderId} 
+                                      reminders={this.state.reminders} 
+                                      onSelect={this.handleReminderSelected} />
+                </div>
 
-                          <div style={{ flexGrow: ".1" }}>
-                            <MyRemindersPanel onSelect={this.handleSelectionChange} reminders={this.state.reminders} />
-                          </div>
+                <div style={{ flexGrow: ".1" }}>
+                  <RemindersSummaryPanel onDeleted={this.handleReminderDeleted} reminder={this.state.activeReminder} />
+                </div>
 
-                          <div style={{ flexGrow: ".1" }}>
-                            <RemindersSummaryPanel reminder={this.state.activeReminder} onDeleted={ this.handleReminderDeleted } />
-                          </div>
-
-                        </div>
-                    </div>)
-
-    const noReminders = (<div style={{ height: '100%' }}> 
-                          <div style={ MyReminders.containerStyle }>
-
-                            <div style={{ flexGrow: ".1" }}>
-                              <NoRemindersPanel />
-                            </div>
-
-                            <div style={{ flexGrow: ".1" }}>
-                              <NoRemindersInfoPanel />  
-                            </div>
-
-                          </div>
-                        </div>)
-
-    const loading = (<div style={{ height: '100%' }}> 
-                      <div style={ MyReminders.containerStyle }>
-                        <div className="loader-pos">
-                          <div className="loader"></div>
-                        </div> 
-                      </div>
-                    </div>)
-
-    return ( <div> 
-                    { 
-                      this.state.fetchComplete ? (this.state.noReminders ? noReminders : panels) : loading
-                    } 
-            </div> )
+              </div>
+          
+            </div>)
   
   }
 

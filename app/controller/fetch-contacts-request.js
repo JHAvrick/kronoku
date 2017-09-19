@@ -1,13 +1,17 @@
-class ExistingRequest {
+class FetchContactsRequest {
 	constructor(onComplete, onFailure){
 		var onComplete = onComplete ? onComplete : function(){}
 		var onFailure = onFailure ? onFailure : function(){}
 
-		var request = new Request(UserSession.getRequestPath() + '/existing_reminders', 
+		var reqBody = {
+			guid: UserSession.getGUID()
+		}
+
+		var request = new Request(UserSession.getRequestPath() + '/fetch_contacts', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },
-									body: JSON.stringify({ guid: UserSession.getGUID() })
+									body: JSON.stringify(reqBody)
 								});
 
 		fetch(request).then((response) => {
@@ -18,7 +22,7 @@ class ExistingRequest {
 
 			});
 
-		}).catch((data) => {
+		}).catch(() => {
 
 			onFailure();
 
@@ -28,4 +32,4 @@ class ExistingRequest {
 
 }
 
-export default ExistingRequest;
+export default FetchContactsRequest;

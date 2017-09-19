@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {toast} from 'react-toastify';
 
-import { ToastContainer, toast } from 'react-toastify';
 import BlacklistInfoPanel from 'comp/blacklist-info-panel.jsx';
 import BlacklistStatusPanel from 'comp/blacklist-status-panel.jsx';
 import VerifyPanel from 'comp/verify-panel.jsx';
@@ -96,14 +96,6 @@ class Blacklist extends React.Component {
   render() {
     return (<div className="flex-centered" style={{ height: '90%' }}>
    
-              <ToastContainer position="top-right"
-                              type="default"
-                              autoClose={5000}
-                              hideProgressBar={false}
-                              newestOnTop={false}
-                              closeOnClick
-                              pauseOnHover />
-
               <BlacklistInfoPanel style={{
                 height: '80%'
               }} />

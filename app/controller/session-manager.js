@@ -1,21 +1,32 @@
 class SessionManager {
 	constructor(){
 		//localStorage.removeItem("kronoku"); //DEV ONLY
-		
+			
 		if (!localStorage.kronoku){
-			localStorage.setItem("kronoku", JSON.stringify({ guid: this.generateGUID() }));
+			localStorage.setItem("kronoku", JSON.stringify({ guid: this.generateGUID(), contacts: [] }));
 			this.registerAnonUser();
 		}
 		
 		this.store = JSON.parse(localStorage.getItem('kronoku'));
 		this.storeRaw = localStorage.getItem('kronoku');
-		this.requestPath = 'https://desolate-reaches-37166.herokuapp.com';
+		this.requestPath = 'https://kronoku.herokuapp.com';
+		//this.requestPath = 'http://localhost:8080';
 
 		this.logVisit();
 	}
 
+	addUserContact(name, number){
+		this.store.contacts.push({ name: name, number: number });
+		localStorage.setItem("kronoku", JSON.stringify(this.store));
+	}
+
+	getUserContacts(){
+		return JSON.parse(localStorage.getItem('kronoku')).contacts;
+	}
+
+	//Will always return a GUID, even if localStorage is cleared to prevent it
 	getGUID(){
-		return this.store.guid;
+		return JSON.parse(localStorage.getItem('kronoku')).guid || this.generateGUID();
 	}
 
 	getRequestPath(){
@@ -24,7 +35,7 @@ class SessionManager {
 
 	registerAnonUser(){
 
-		var request = new Request('https://desolate-reaches-37166.herokuapp.com/register_anon', 
+		var request = new Request(this.getRequestPath() + '/register_anon', 
 								{
 									method: 'POST', 
 									headers: {

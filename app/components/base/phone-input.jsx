@@ -9,6 +9,7 @@ class PhoneInput extends React.Component {
       disabled: props.disabled || false,
       template: "(~0~1~2) - ~3~4~5 - ~6~7~8~9",
       currentValue: "(    )  -     -    ",
+      className: props.className || "phone-input",
       onChange: props.onChange
     }
 
@@ -57,9 +58,14 @@ class PhoneInput extends React.Component {
   }
 
   render() {
-    return (<input className="phone-input"
+    return (<input className={ this.state.className }
+                   placeholder="Number"
                    ref={ this.setInputRef } 
-                   value={ this.state.currentValue } 
+                   value={  
+                            this.state.currentValue.replace(/\D/g, '').length > 0 
+                            ? this.state.currentValue 
+                            : '' 
+                          } 
                    onInput={ this.handleInput }
                    onClick={ this.handleCursorMove }
                    onKeyDown={ this.handleCursorMove } 

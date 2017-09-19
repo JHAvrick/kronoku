@@ -7,16 +7,17 @@ import SessionManager from 'controller/session-manager.js';
 //Nav
 import Transitional from 'base/transitional.jsx';
 import KronokuNav from 'comp/kronoku-nav.jsx';
+import { ToastContainer, toast } from 'react-toastify';
 
 //Desktop pages
 import SetReminder from 'page/set-reminder.jsx';
 import MyReminders from 'page/my-reminders.jsx';
+import MyContacts from 'page/my-contacts.jsx';
 import HomeFaq from 'page/home-faq.jsx';
-import Contact from 'page/contact.jsx';
 import Blacklist from 'page/blacklist.jsx';
 
 //Mobile pages
-import Home from 'page/home.jsx';
+import HomeMobile from 'page/mobile/home.jsx';
 
 window.UserSession = new SessionManager();
 
@@ -26,13 +27,17 @@ const DesktopPages =  {
   home: <HomeFaq />,
   setreminder: <SetReminder />,
   myreminders: <MyReminders />,
+  mycontacts: <MyContacts />,
   faq: <HomeFaq />,
-  blacklist: <Blacklist />,
-  contact: <Contact />
+  blacklist: <Blacklist />
 }
 
 const MobilePages =  {
-  home: <Home />
+  home: <HomeMobile />,
+  setreminder: <HomeMobile />,
+  myreminders: <HomeMobile />,
+  faq: <HomeMobile />,
+  blacklist: <HomeMobile />
 }
 //---------------------------------------------------------------------------
 
@@ -41,13 +46,37 @@ class App extends React.Component {
   constructor(props){
   	super(props);
 
-    this.pages = DesktopPages;
+    var mediaQuery = window.matchMedia('only screen and (max-width: 600px)');
+    if (mediaQuery.matches) this.pages = MobilePages;
+    else this.pages = DesktopPages;
+    
+    /*
+    mediaQuery.onchange = function(change){
+      if (change.matches){
+        console.log("Small");
+      } else {
+        console.log("Not small.");
+      }
+    }
+
+    
+    window.onresize = function(){
+      
+      if (change.matches){
+        console.log("Small");
+      } else {
+        console.log("Not small.");
+      }
+    }
+    */
+
+    //this.pages = DesktopPages;
     if (!this.pages[window.location.hash.replace('#', '')]){
-      window.location.hash = '#home';
+      window.history.pushState(null, null, '#home');
     }
 
     this.state = {
-      reveal: false,
+      reveal: true,
       activeHash: window.location.hash,
       activePage: this.pages[window.location.hash.replace('#', '')]
     }
@@ -92,6 +121,14 @@ class App extends React.Component {
   render() {
     return (<div className="app">
               <KronokuNav />
+
+              <ToastContainer position="top-right"
+                              type="default"
+                              autoClose={5000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              pauseOnHover />
 
               <Transitional isActive={ this.state.reveal }
                             initial={{ position: 'relative', top: '-50px', opacity: '0', transition: '1s'}}

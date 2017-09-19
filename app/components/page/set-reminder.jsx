@@ -1,11 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {toast} from 'react-toastify';
 
 import DateSelect from 'base/date-select.jsx';
 import DateSummary from 'base/date-summary.jsx';
 import TimeSelect from 'base/time-select.jsx';
-import RecipientsForm from 'base/recipients-form.jsx';
-import { ToastContainer, toast } from 'react-toastify';
+import RecipientsPanel from 'comp/recipients-panel.jsx';
 
 import ReminderRequest from 'controller/reminder-request.js';
 
@@ -21,14 +21,14 @@ class SetReminder extends React.Component {
       hour: now.getHours(),
       minute: now.getMinutes(),
       pm: now.getHours() > 12 ? true : false,
-      phone: '',
+      recipients: [],
       message: '',
       reminderPending: false
     }
 
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
-    this.handleSMSChange = this.handleSMSChange.bind(this);
+    //this.handleSMSChange = this.handleSMSChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -57,16 +57,24 @@ class SetReminder extends React.Component {
     });
   }
 
+  /*
   handleSMSChange(change){
     this.setState({
-      phone: change.number,
+      recipients: change.recipients,
       message: change.message
     });
   }
+  */
 
-  handleSubmit(){
+  handleSubmit(reminder){
 
-    this.setState({ reminderPending: true}, ()=> {
+    this.setState({ 
+
+      recipients: reminder.recipients,
+      message: reminder.message,
+      reminderPending: true
+
+    }, ()=> {
 
       var request = new ReminderRequest(this.state, 
         //On success
@@ -93,14 +101,6 @@ class SetReminder extends React.Component {
   render() {
     return (<div style={{ height: '100%' }}>
 
-              <ToastContainer position="top-right"
-                              type="default"
-                              autoClose={5000}
-                              hideProgressBar={false}
-                              newestOnTop={false}
-                              closeOnClick
-                              pauseOnHover />
-
                 <div style={{ display: 'flex', 
                               flexDirection: 'row', 
                               alignItems: 'center', 
@@ -126,7 +126,7 @@ class SetReminder extends React.Component {
                   </div>
 
                   <div style={{ flexGrow: ".1" }}>
-                    <RecipientsForm onChange={this.handleSMSChange} onSubmit={this.handleSubmit} disabled={this.state.reminderPending} />
+                    <RecipientsPanel onSubmit={this.handleSubmit} disabled={this.state.reminderPending} />
                   </div>
 
                 </div>

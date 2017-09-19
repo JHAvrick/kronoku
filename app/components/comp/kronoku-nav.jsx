@@ -36,7 +36,7 @@ class KronokuNav extends React.Component {
     this.goMyReminders = this.goMyReminders.bind(this);
     this.goBlacklist = this.goBlacklist.bind(this);
     this.goFAQ = this.goFAQ.bind(this);
-    this.goContact = this.goContact.bind(this);
+    this.goContacts = this.goContacts.bind(this);
   }
 
   openSideNav(){
@@ -91,10 +91,10 @@ class KronokuNav extends React.Component {
     });
   }
   
-  goContact(){
-    window.location.hash = '#contact';
+  goContacts(){
+    window.location.hash = '#mycontacts';
     this.setState({
-      activeKey: 'contact',
+      activeKey: 'mycontacts',
       sideNavOpen: false
     });
   }
@@ -111,12 +111,16 @@ class KronokuNav extends React.Component {
                 <AndroidHome size={25} style={ KronokuNav.itemStyle } />
               </SideNavItem>
 
-              <SideNavItem title={"Set Reminder"} isActive={ this.state.activeKey === 'setreminder' ? true : false } onClick={ this.goSetReminder }>
+              <SideNavItem title={"Quick Reminder"} isActive={ this.state.activeKey === 'setreminder' ? true : false } onClick={ this.goSetReminder }>
                 <IosPlus size={25} style={ KronokuNav.itemStyle } />
               </SideNavItem>
 
               <SideNavItem title={"My Reminders"} isActive={ this.state.activeKey === 'myreminders' ? true : false } onClick={ this.goMyReminders }>
                 <IosAlarm size={25} style={ KronokuNav.itemStyle } />
+              </SideNavItem>
+
+              <SideNavItem title={"Contacts"} isActive={ this.state.activeKey === 'mycontacts' ? true : false } onClick={ this.goContacts }>
+                <AndroidTextsms size={25} style={ KronokuNav.itemStyle } />
               </SideNavItem>
 
               <SideNavItem title={"Blacklist"} isActive={ this.state.activeKey === 'blacklist' ? true : false } onClick={ this.goBlacklist }>
@@ -125,13 +129,7 @@ class KronokuNav extends React.Component {
 
               <SideNavItem title={"About / FAQ"} isActive={ this.state.activeKey === 'faq' ? true : false } onClick={ this.goFAQ }>
                 <InformationCircled size={25} style={ KronokuNav.itemStyle } />
-              </SideNavItem>
-
-            {/* 
-              <SideNavItem title={"Contact"} isActive={ this.state.activeKey === 'contact' ? true : false } onClick={ this.goContact }>
-                <AndroidTextsms size={25} style={ KronokuNav.itemStyle } />
-              </SideNavItem>
-            */}
+              </SideNavItem>            
 
             </SideNav>
 

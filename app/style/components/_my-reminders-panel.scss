@@ -22,11 +22,16 @@
     margin-bottom: 10px;
   }
 
-  .reminder-list--container {
+  .reminder-list__container {
+    @include rounded();
+
+    overflow-y: auto;
     width: 90%;
-    height: 80%;
+    height: 85%;
     border: 1px solid lightgray;
-    border-top: 0;
+    background-color: #DEEAED;
+    padding-top: 10px;
+
   }
 
   .reminder-list--header {

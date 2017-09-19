@@ -7,7 +7,7 @@ class ReminderRequest {
 		var reqBody = {
 			guid: UserSession.getGUID(),
 			msFromNow: diff,
-			phone: reminder.phone,
+			recipients: reminder.recipients, //an array of contactIDs
 			message: reminder.message
 		}
 		

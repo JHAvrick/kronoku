@@ -23,19 +23,7 @@ class Home extends React.Component {
 
   render() {
     return (<div>
-
-              <Transitional isActive={ this.state.reveal }
-                            initial={{ position: 'relative', top: '-50px', opacity: '0', transition: '1s' }}
-                            enter={{ position: 'relative', top: '0px', opacity: '1', transition: '1s' }}
-                            exit={{ position: 'relative', top: '50px', opacity: '0', transition: '1s' }}
-                            onTransitionStart={this.handleTransitionStart}
-                            onTransitionComplete={this.handleTransitionComplete} >
-
-
                 <InfoPanel />
-
-              </Transitional>
-
             </div>)
   }
 

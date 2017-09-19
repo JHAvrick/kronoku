@@ -1,4 +1,4 @@
-.recipients--container {
+.recipients__panel {
 
   display: flex;
   flex-direction: column;
@@ -12,22 +12,56 @@
   padding: 15px;
   box-shadow:  #d8e3e9 0 0 10px;
 
-  .phone-input--container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
   .message-input {
-    height: 150px;
-    width: 220px;
+    height: 100px;
+    width: 85%;
     font-size: 14px;
     border: 1px solid black;
     border-radius: 3px;
     resize: none;
-    margin-top: 10px;
     padding: 5px;
+    white-space: pre-wrap;
+  }
+
+  .recipients__phone-input {
+    width: 85%;
+    margin: 0;
   }
 
 }
+
+.recipients__label {
+  width: 85%;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.recipients-form__submit {
+  width: 30px;
+  color: white;
+  background-color: #282826;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-left: 5px;  
+  cursor: pointer;
+  font-size: 22px;
+}
+
+
+.recipients-form__container {
+  width: 85%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.quick-add-contact__inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: auto;  
+}
+

@@ -1,17 +1,13 @@
-class DeleteRequest {
-	constructor(groupId, onComplete, onFailure){
+class FetchRemindersRequest {
+	constructor(onComplete, onFailure){
 		var onComplete = onComplete ? onComplete : function(){}
 		var onFailure = onFailure ? onFailure : function(){}
 
-		var reqBody = {
-			groupId: groupId
-		}
-		
-		var request = new Request(UserSession.getRequestPath() + '/delete_reminder', 
+		var request = new Request(UserSession.getRequestPath() + '/fetch_reminders', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },
-									body: JSON.stringify(reqBody)
+									body: JSON.stringify({ guid: UserSession.getGUID() })
 								});
 
 		fetch(request).then((response) => {
@@ -32,4 +28,4 @@ class DeleteRequest {
 
 }
 
-export default DeleteRequest;
+export default FetchRemindersRequest;

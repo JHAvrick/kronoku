@@ -8,7 +8,6 @@ $kronoku-purple: #D9D1FF;
 $kronoku-red: #FFB3BA;
 $kronoku-yellow: #FFFFBA;
 
-
 /* Side Nav */
 $sidenav-bg-color: #deeaed;
 $sidenav-header-color: $kronoku-fg-color;
@@ -23,4 +22,20 @@ $sidenav-header-font-color: #A4A2A3 !default;
   -moz-user-select: none;
   -ms-user-select: none;
    user-select: none;
+}
+
+@mixin flex-centered(){
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+
+@mixin rounded(){
+  border-radius: 3px;
+}
+
+@mixin box-shadow(){
+  box-shadow: #d8e3e9 0 0 10px;
 }

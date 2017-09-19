@@ -8,7 +8,6 @@ class InfoPanel extends React.Component {
     super(props);
 
     this.state = {}
-    this.style = props.style;
 
     this.goToSetReminder = this.goToSetReminder.bind(this);
   }
@@ -18,7 +17,7 @@ class InfoPanel extends React.Component {
   }
 
   render() {
-    return (<Panel className="panel" style={ this.style } >
+    return (<Panel className="panel" style={ this.props.style } >
 
                 <h1 className="panel__title"> {"Kronoku"} 
                   <Clipboard size={30} style={{ marginLeft: 'auto' }}/>

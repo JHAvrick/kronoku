@@ -6,7 +6,7 @@ class TopNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: props.title
+      title: props.title,
     };
 
     this.style = Object.assign({}, TopNav.defaultProps.style, props.style);
@@ -41,6 +41,42 @@ class TopNav extends React.Component {
       </div> );
   }
 
+}
+
+class TopNavItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: props.title,
+      active: false,
+      onClick: props.onClick || function(){}
+    };
+
+    this.style = Object.assign({}, TopNavItem.defaultProps.style, props.style);
+  }
+
+  render() {
+    return (
+      <div style={this.style}>
+
+        { this.state.title }
+
+      </div> );
+  }
+
+}
+
+TopNavItem.defaultProps = {
+  style: {
+    width: '100px',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '24px'
+  }
 }
 
 TopNav.propTypes = {

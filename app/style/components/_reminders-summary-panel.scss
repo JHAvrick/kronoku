@@ -39,33 +39,8 @@
       padding-left: 10px;
       border-radius: 3px;
       word-break: break-word;
+      white-space: pre-wrap;
       transition: 0.5s;
-    }
-
-    .blue:hover {
-      background-color: $kronoku-blue;
-    }
-
-    .purple:hover {
-      background-color: $kronoku-purple;
-    }
-
-    .green:hover {
-      background-color: $kronoku-green;
-    }
-
-    .red:hover {
-      background-color: $kronoku-red;
-    }
-
-    .delete-reminder--container {
-        margin: auto;
-        color: darken($kronoku-red, 10%);
-    }
-
-    .delete-reminder--container:hover {
-        margin: auto;
-        color: $kronoku-red;
     }
 
   }

@@ -67,6 +67,22 @@
 	margin-left: 10px;
 }
 
+.panel__content {
+  height: 80%;
+  overflow: auto;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.panel__textbox {
+	background-color: transparent;
+	border-radius: 7px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	max-width: 600px;
+	transition: .2s;
+}
+
 @include breakpoint(small){
 
 	/* -------------BLOCK------------- */

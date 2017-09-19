@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
+    "build-style": "node-sass ./app/style/all.scss ./build/bundle.css --output-style compressed",
     "dev": "webpack -d --watch",
     "style": "node-sass --watch ./app/style/all.scss ./build/bundle.css",
     "server": "node server.js"
@@ -27,11 +28,14 @@
   "license": "MIT",
   "dependencies": {
     "react-code-input": "^1.1.5",
+    "react-flip-move": "^2.9.15",
     "react-icons": "^2.2.5",
     "react-onclickout": "^2.0.7",
     "react-phone-input": "^1.2.1",
     "react-phone-number-input": "^0.12.10",
+    "react-select": "^1.0.0-rc.10",
     "react-sidenav": "^2.1.2",
+    "react-stonecutter": "^0.3.7",
     "react-toastify": "^2.0.0-rc.3",
     "toastr": "^2.1.2"
   }

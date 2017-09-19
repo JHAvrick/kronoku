@@ -1,13 +1,14 @@
-class DeleteRequest {
-	constructor(groupId, onComplete, onFailure){
+class DeleteContactsRequest {
+	constructor(contactId, onComplete, onFailure){
 		var onComplete = onComplete ? onComplete : function(){}
 		var onFailure = onFailure ? onFailure : function(){}
 
 		var reqBody = {
-			groupId: groupId
+			guid: UserSession.getGUID(),
+			contactId: contactId
 		}
-		
-		var request = new Request(UserSession.getRequestPath() + '/delete_reminder', 
+
+		var request = new Request(UserSession.getRequestPath() + '/delete_contact', 
 								{
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },
@@ -22,7 +23,7 @@ class DeleteRequest {
 
 			});
 
-		}).catch((data) => {
+		}).catch(() => {
 
 			onFailure();
 
@@ -32,4 +33,4 @@ class DeleteRequest {
 
 }
 
-export default DeleteRequest;
+export default DeleteContactsRequest;
