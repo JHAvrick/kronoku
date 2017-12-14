@@ -102,7 +102,7 @@ class QuickContactPanel extends React.Component {
 
     					</p>
 
-    					<div style={{ display: 'flex', flexDirection: 'column', width: '80%', height: '40%' }}>
+    					<div style={{ display: 'flex', flexDirection: 'column', width: '80%', height: '35%' }}>
 
               	<input onChange={this.handleNameChange} className="input input--full" placeholder="Name" type="text" />
 

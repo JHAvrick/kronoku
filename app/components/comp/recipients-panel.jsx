@@ -173,7 +173,7 @@ class RecipientsForm extends React.Component {
                           placeholder="Your message..."
                           onChange={ this.handleMessageChange }>
                 </textarea>
-                <button className="button--dark" style={{ width: '85%' }} onClick={this.handleSubmit}> Set Reminder </button>
+                <button className="btn btn--dark btn--full btn--normal font--med" style={{ width: '85%' }} onClick={this.handleSubmit}> Set Reminder </button>
             </div>)
   }
 

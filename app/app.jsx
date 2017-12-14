@@ -46,9 +46,13 @@ class App extends React.Component {
   constructor(props){
   	super(props);
 
+    /*
     var mediaQuery = window.matchMedia('only screen and (max-width: 600px)');
     if (mediaQuery.matches) this.pages = MobilePages;
     else this.pages = DesktopPages;
+    */
+
+    this.pages = DesktopPages;
     
     /*
     mediaQuery.onchange = function(change){

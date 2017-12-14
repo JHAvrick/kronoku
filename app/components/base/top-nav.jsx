@@ -9,7 +9,7 @@ class TopNav extends React.Component {
       title: props.title,
     };
 
-    this.style = Object.assign({}, TopNav.defaultProps.style, props.style);
+    this.style = Object.assign({}, TopNav.defaultProps.style || {}, props.style || {});
   }
 
   render() {
@@ -53,7 +53,7 @@ class TopNavItem extends React.Component {
       onClick: props.onClick || function(){}
     };
 
-    this.style = Object.assign({}, TopNavItem.defaultProps.style, props.style);
+    this.style = Object.assign({}, TopNavItem.defaultProps.style || {}, props.style || {});
   }
 
   render() {
@@ -100,41 +100,3 @@ TopNav.defaultProps = {
 }
 
 export default TopNav;
-
-/*
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: flex-end;
-  overflow: hidden;
-
-  height: $nav-height;
-  background-color: $nav-bg-color;
-  padding-left: $nav-gutter-left;
-  padding-right: $nav-gutter-right;
-
-  .topnav-container-items {
-
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      flex-grow: .5;
-      align-items: center;
-  }
-
-  .topnav-container-title {
-
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 20px;
-      color: #CDD6CF;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      flex-grow: .5;
-
-  }
-*/

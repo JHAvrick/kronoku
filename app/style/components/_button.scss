@@ -1,31 +1,74 @@
-.button {
-  height: 35px;
-  width: 220px;
-  font-size: 16px;
-  transition: .5s;
-  margin-top: 10px;
-  padding: 0;
-}
+.btn {
+  @include unselectable();
 
-.button--dark {
-  color: white;
-  background-color: #282826;
   border: 1px solid black;
   border-radius: 3px;
-  height: 35px;
-  width: 220px;
+  transition: .3s;
   font-size: 16px;
-  transition: .5s;
-  margin-top: 10px;
-  padding: 0;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  height: 35px;
 }
 
-.button--dark:hover {
+/* ----------------------Button Sizes---------------------- */
+
+/* Absolute */
+.btn--small { width: 100px; }
+.btn--medium { width: 150px; }
+.btn--large { width: 200px;}
+
+
+/* Relative */
+.btn--quarter { width: 25%;}
+.btn--half { width: 50%; }
+.btn--full { width: 100%; }
+
+/* Percent */
+.btn--10 { width: 10%; }
+.btn--20 { width: 20%; }
+.btn--30 { width: 30%; }
+.btn--40 { width: 40%; }
+.btn--50 { width: 50%; }
+.btn--60 { width: 60%; }
+.btn--70 { width: 70%; }
+.btn--80 { width: 80%; }
+.btn--90 { width: 90%; }
+.btn--100 { width: 100%; }
+
+
+/* Height Modifiers */
+
+.btn--short { height: 25px; }
+.btn--normal { height: 35px; }
+.btn--tall { height: 50px; }
+
+/* ----------------------Button Themes---------------------- */
+
+/* CONTRAST */
+.btn--contrast {
+  color: $kronoku-text-muted;
+  background-color: white;
+}
+
+.btn--contrast:hover {
+  background-color: black;
+  color: white;
+  transition: .5s;
+}
+
+
+/* DARK */
+.btn--dark {
+  color: white;
+  background-color: #282826;
+}
+
+.btn--dark:hover {
   background-color: gray;
   transition: .5s;
 }
 
-.button--dark:disabled {
+.btn--dark:disabled {
   cursor: not-allowed;
   background-color: $kronoku-text-muted;
 }

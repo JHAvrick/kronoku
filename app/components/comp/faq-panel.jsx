@@ -14,7 +14,7 @@ class FaqPanel extends React.Component {
 
     var blackListLink = <a href="#blacklist">here</a>;
 
-    return (<Panel className="panel" style={ this.props.style } >
+    return (<Panel className={ "panel " + this.props.className } style={ this.props.style } >
 
                 <h1 className="panel__title"> {"FAQ"} 
                   <InformationCircled size={30} style={{ marginLeft: 'auto' }}/>
@@ -74,7 +74,7 @@ class FaqPanel extends React.Component {
                     <p className="panel__text">  
                       {
                         "Send an email to contact@kronoku.com. If you have an " + 
-                        "issue or would like to report abuse, your can use" +
+                        "issue or would like to report abuse, your can use " +
                         "support@kronoku.com"
                       }
                     </p>

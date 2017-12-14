@@ -73,7 +73,7 @@ class AddContactPanel extends React.Component {
 
   render() {
 
-    return (<div className="my-reminders--container" style={{ width: '400px' }}>
+    return (<div className="my-reminders--container">
 
               <span className="my-reminders--title" style={{ height: '20%' }}>
                 {" Add Contact "}

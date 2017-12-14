@@ -166,7 +166,7 @@ class RemindersListCard extends React.Component {
                     <Person size={25} />
                   </div>
 
-                  <div className="list-card__icon"> 
+                  <div className="list-card__icon collapse--small"> 
                     <Calendar size={25} />
                   </div>
 
@@ -181,7 +181,7 @@ class RemindersListCard extends React.Component {
                     { this.state.recipientCount  }
                   </div>
 
-                  <div className="list-card__info-label"> 
+                  <div className="list-card__info-label collapse--small"> 
                     { this.state.scheduled }
                   </div>
 

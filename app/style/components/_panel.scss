@@ -39,8 +39,8 @@
   justify-content: flex-start;
   align-items: center;
 	font: 40px Aqua;
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 7%;
+	margin-right: 7%;
 	margin-bottom: 10px;
 	border-bottom: 1px solid gray;
 	padding-top: 20px;
@@ -65,13 +65,14 @@
 	color: $kronoku-text-muted;
 	margin-top: 5px;
 	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .panel__content {
   height: 80%;
   overflow: auto;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
 .panel__textbox {
@@ -125,9 +126,9 @@
 
 	.panel__text {
 		font: 26px;
-		margin-left: 25px;
-		margin-right: 25px;
+		margin-left: 0;
 		margin-top: 5px;
+		margin-bottom: 5px;
 	}
 
 }

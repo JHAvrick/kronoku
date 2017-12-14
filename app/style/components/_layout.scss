@@ -1,0 +1,94 @@
+@import '../breakpoints.scss';
+
+/* ------------------------ FLEX ------------------------ */
+@mixin flex($type){
+	display: flex;
+
+	@if ($type) {
+		@if $type == "centered" {
+
+			align-items: center;
+			justify-content: center;
+
+		} @else if $type == "right" {
+
+			align-items: center;
+			justify-content: flex-start;
+
+		} @else if $type == "left" {
+
+			align-items: center;
+			justify-content: flex-end;
+
+		}
+
+	}
+
+}
+
+.flex--centered { @include flex(centered); }
+.flex--left { @include flex(right); }
+.flex--right { @include flex(left); }
+.flex--row { flex-direction: row; }
+.flex--col { flex-direction: column; }
+
+/* ------------------------ SIMPLE CONTAINERS ------------------------ */
+
+@mixin size($width, $height){
+	width: $width;
+	height: $height;
+}
+
+
+/* Simple ratio containers */
+.con--100 { @include size(100%, 100%); }
+.con--75 {  @include size(75%, 75%); }
+.con--50 {  @include size(50%, 50%); }
+.con--25 {  @include size(25%, 25%); }
+
+
+
+/* ------------------------ TOP-LEVEL CONTAINERS ------------------------ */
+/* Starts as row */
+.reflow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	width: 95%;
+	height: calc(100% - 70px);
+	margin: auto;
+
+	@include breakpoint(medium){
+		flex-direction: column;
+		justify-content: flex-start;
+		overflow-y: scroll;
+
+
+		width: 100%;
+		padding-top: 3%;
+
+	}
+
+}
+
+.reflow__item {
+	flex-grow: .1;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+
+	@include breakpoint(medium){
+
+		width: 100%;
+
+		> :first-child {
+			margin: auto;
+		}
+
+	}
+
+}
+
+
+

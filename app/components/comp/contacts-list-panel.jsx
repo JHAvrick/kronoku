@@ -88,7 +88,7 @@ class ContactsListPanel extends React.Component {
       list: list
     }
 
-    return (<div className="my-reminders--container" style={{ width: '400px' }}>
+    return (<div className="my-reminders--container">
 
               <span className="my-reminders--title">
                 {" Your Contacts "}
@@ -145,7 +145,7 @@ class ContactListCard extends React.Component {
                     <Person size={25} style={{ marginRight: '10px' }} /> { this.state.name }
                   </div>
 
-                  <div className="list-card__icon" style={{ marginRight: 'auto', marginLeft: '15px' }}> 
+                  <div className="list-card__icon" style={{ marginRight: 'auto', marginLeft: '15px', textAlign: 'left' }}> 
                     <IosTelephone size={25} style={{ marginRight: '10px' }} /> { this.state.phone } 
                   </div>
                 </span>

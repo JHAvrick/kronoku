@@ -79,15 +79,15 @@ class MyReminders extends React.Component {
 
     return (<div style={{ height: '100%' }}>
 
-              <div style={ MyReminders.containerStyle }>
+              <div className="reflow">
 
-                <div style={{ flexGrow: ".1" }}>
+                <div className="reflow__item">
                   <RemindersListPanel activeReminderId={this.state.activeReminderId} 
                                       reminders={this.state.reminders} 
                                       onSelect={this.handleReminderSelected} />
                 </div>
 
-                <div style={{ flexGrow: ".1" }}>
+                <div className="reflow__item">
                   <RemindersSummaryPanel onDeleted={this.handleReminderDeleted} reminder={this.state.activeReminder} />
                 </div>
 

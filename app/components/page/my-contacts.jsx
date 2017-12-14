@@ -71,15 +71,15 @@ class MyContacts extends React.Component {
     return (<div style={{ height: '100%' }}>
 
               
-              <div style={ MyContacts.containerStyle }>
+              <div className="reflow">
 
                 
-                <div style={{ flexGrow: ".1" }}>
+                <div className="reflow__item">
                   <AddContactPanel  onSubmit={this.fetchContacts} 
                                     contact={this.state.activeContact} />
                 </div>
                 
-                <div style={{ flexGrow: ".1" }}>
+                <div className="reflow__item">
                   <ContactsListPanel  contacts={this.state.contacts} 
                                       onDelete={this.handleContactDeleted} />
                 </div> 
@@ -92,16 +92,6 @@ class MyContacts extends React.Component {
   
   }
 
-}
-
-MyContacts.containerStyle = {
-  display: 'flex', 
-  flexDirection: 'row', 
-  alignItems: 'center', 
-  justifyContent: 'center',
-  width: '95%',
-  height: ' calc(100% - 55px)',
-  margin: 'auto'
 }
 
 export default MyContacts;

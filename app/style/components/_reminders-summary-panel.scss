@@ -1,15 +1,21 @@
+@import '../breakpoints';
+
 .reminders-summary--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 400px;
+  width: 500px;
   height: 400px;
   background-color: white;
   border-radius: 5px;
   padding: 15px;
   box-shadow:  #d8e3e9 0 0 10px;
+
+  @include breakpoint(small){
+    width: 90%;
+  }
 
   .reminders-summary--title {
     display: flex;

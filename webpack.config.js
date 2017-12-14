@@ -9,7 +9,7 @@ var BUILD_DIR = path.resolve(__dirname, 'build');
 module.exports = {
 			name: "kronoku",
 			
-			entry: path.resolve(APP_DIR, 'app.jsx'),
+			entry: ['whatwg-fetch', path.resolve(APP_DIR, 'app.jsx')] ,
 			
 			output: {
 					path: BUILD_DIR,

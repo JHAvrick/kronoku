@@ -1,0 +1,22 @@
+@mixin font-size($size){
+	font-size: $size;
+}
+
+@include breakpoint(large){
+	.font--small { @include font-size(14px); }
+	.font--med { @include font-size(16px); }
+	.font--large { @include font-size(20px); }	
+}
+
+@include breakpoint(med){
+	.font--small { @include font-size(14px); }
+	.font--med { @include font-size(16px); }
+	.font--large { @include font-size(20px); }
+}
+
+@include breakpoint(small){
+	.font--small { @include font-size(14px); }
+	.font--med { @include font-size(16px); }
+	.font--large { @include font-size(18px); }	
+}
+

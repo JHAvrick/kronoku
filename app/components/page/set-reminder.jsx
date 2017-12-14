@@ -101,20 +101,13 @@ class SetReminder extends React.Component {
   render() {
     return (<div style={{ height: '100%' }}>
 
-                <div style={{ display: 'flex', 
-                              flexDirection: 'row', 
-                              alignItems: 'center', 
-                              justifyContent: 'center',
-                              width: '95%',
-                              height: ' calc(100% - 55px)',
-                              margin: 'auto'
-                            }}>
+                <div className="reflow">
 
-                  <div style={{ flexGrow: ".1" }}>
+                  <div className="reflow__item">
                     <DateSelect futureOnly={true} onChange={this.handleDateChange} />
                   </div>
 
-                  <div style={{ flexGrow: ".1" }}>
+                  <div className="reflow__item">
                     <TimeSelect onChange={this.handleTimeChange} >
                       <DateSummary year={this.state.year}
                                    month={this.state.month}
@@ -125,7 +118,7 @@ class SetReminder extends React.Component {
                     </TimeSelect>
                   </div>
 
-                  <div style={{ flexGrow: ".1" }}>
+                  <div className="reflow__item">
                     <RecipientsPanel onSubmit={this.handleSubmit} disabled={this.state.reminderPending} />
                   </div>
 

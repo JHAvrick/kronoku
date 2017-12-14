@@ -1,0 +1,19 @@
+@import "../breakpoints.scss";
+
+.collapse--small {
+ @include breakpoint(small){
+		display:none;
+ }
+}
+
+.collapse--medium {
+ @include breakpoint(medium){
+		display:none;
+ }
+}
+
+.collapse--large {
+ @include breakpoint(large){
+		display:none;
+ }
+}

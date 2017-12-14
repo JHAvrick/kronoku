@@ -23,19 +23,30 @@ class InfoPanel extends React.Component {
                   <Clipboard size={30} style={{ marginLeft: 'auto' }}/>
                 </h1>
 
-                <div className="text-container container--blue">
-                    <p className="panel__text"> { "Schedule quick and easy SMS reminders for yourself or a group!" } </p>
-                </div>
+                <div className="panel__content">
 
-                <div style={{ 
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '100%',
-                  height: '55%'
-                }}>
+                  <div className="panel__textbox hover--blue">
+                    <p className="panel__text">
+                      { "Schedule quick and easy SMS reminders for yourself or a group!" }
+                    </p>
+                  </div>
 
-                  <button className="button--set-reminder" onClick={ this.goToSetReminder }> {"Set Reminder Now!"} </button>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '75%'
+                  }}>
+
+                    <button className="btn btn--50 btn--contrast btn--tall font--large" 
+                            onClick={ this.goToSetReminder }> 
+
+                            {"Set Reminder Now!"} 
+
+                    </button>
+
+                  </div>
 
                 </div>
 

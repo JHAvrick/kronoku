@@ -60,7 +60,7 @@ class SessionManager {
 
 
 	logVisit(){
-		fetch(new Request('http://127.0.0.1:8080/log_anon', { 
+		fetch(new Request(this.getRequestPath() + '/log_anon', { 
 
 									method: 'POST', 
 									headers: { 'Content-Type': 'application/json' },

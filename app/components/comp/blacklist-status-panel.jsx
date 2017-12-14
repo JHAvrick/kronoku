@@ -54,15 +54,19 @@ class BlacklistStatusPanel extends React.Component {
 
     return (<Panel className="panel" style={this.style} >
 
-    					<PhoneInput disabled={ this.state.blacklistStaged } onChange={this.handleNumberChange} />
+              <div className="flex--centered con--75 flex--col">
+
+    					 <PhoneInput disabled={ this.state.blacklistStaged } onChange={this.handleNumberChange} />
     					
-    					<button disabled={this.state.allowSubmit ? false : true} 
-    									className="button--dark" 
-    									onClick={ this.handleClick }> 
+      					<button disabled={this.state.allowSubmit ? false : true} 
+      									className="btn btn--dark btn--full font--med" 
+      									onClick={ this.handleClick }> 
 
-    									{this.state.buttonText} 
+      									{this.state.buttonText} 
 
-    					</button>
+      					</button>
+
+              </div>
 
             </Panel>)
   }
